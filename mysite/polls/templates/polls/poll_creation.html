@@ -1,0 +1,15 @@
+<h1>Create new Poll</h1>
+{% if error_message %}
+    {% for error in error_message %}
+        <p><strong>{{ error }}</strong></p>
+    {% endfor %}
+{% endif %}
+<form action="{% url 'polls:submit_poll' %}" method="post">{% csrf_token %}
+    <label for='question'>Question: </label>
+    <input type='text' name='question' id='question'/><br/>
+    <label for='num_choices'>Number of choices avaliable: </label>
+    <input type='number' name='num_choices' id='num_choices' min='0' step='1' /><br/>
+    <label for='end_date'>End Date: </label>
+    <input type='date' name='end_date' id='end_date' /><br/>
+    <input type='submit' />
+</form>

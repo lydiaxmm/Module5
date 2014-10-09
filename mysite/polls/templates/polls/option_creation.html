@@ -1,0 +1,9 @@
+<h1>Add options to Poll {{poll.question}}</h1>
+<form action="{% url 'polls:submit_options' %}" method='post' />{% csrf_token %}
+    {% for i in number %}
+        <label for='option{{x}}'>option {{x}}: </label>
+        <input type='text' name='option' id='option{{x}}' /><br/>
+        <input type='hidden' name='poll_id' id='poll_id' value='{{poll.id}}' />
+    {% endfor %}
+    <input type='submit' />
+</form>
